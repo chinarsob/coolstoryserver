@@ -4,6 +4,7 @@ const corsMiddleWare = require("cors");
 const authMiddleWare = require("./auth/middleware");
 const authRouter = require("./routers/auth");
 const { PORT } = require("./config/constants");
+const spaceRouter = require("./routers/space");
 
 // Create an express app
 const app = express();
@@ -30,7 +31,7 @@ app.use(bodyParserMiddleWare);
  *
  * Define your routes and attach our routers here (now that middlewares are configured)
  */
-
+app.use("/space",spaceRouter)
 app.use("/auth", authRouter);
 
 // POST endpoint which requires a token for testing purposes, can be removed
